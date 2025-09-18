@@ -11,5 +11,6 @@ export default defineConfig({
         layout: resolve(__dirname, './src/main.jsx'),
       }
     }
-  }
+  },
+  base: "/guap-layout",
 })
