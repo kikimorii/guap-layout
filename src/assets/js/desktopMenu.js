@@ -14,7 +14,7 @@ const DESKTOP_MENU_HEIGHT_SPACE = 400; // дополнительно, чтоб �
 const RESIZE_DELAY = 200; // задержка через которую должен срабатывать resize
 
 if (desktopMenu != null) {
-    let desktopMenuHeight = parseInt(getComputedStyle(desktopMenu).height)+DESKTOP_MENU_HEIGHT_SPACE;
+    let desktopMenuHeight = parseInt(getComputedStyle(desktopMenu).height) + DESKTOP_MENU_HEIGHT_SPACE;
     desktopMenu.style.top = `-${desktopMenuHeight}px`;
 
     let resizeTimer;
@@ -50,7 +50,7 @@ if (menuDesktopBtn != null) {
         setTimeout(() => {
             mainContent.classList.toggle('d-none')
             footerContent.classList.toggle('d-none');
-        }, !menuDesktopIcon.classList.contains('active') ? 0 : 300);
+        }, !menuDesktopIcon.classList.contains('active') ? 0 : 500);
     });
 }
 
