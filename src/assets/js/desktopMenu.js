@@ -15,13 +15,14 @@ if (menuDesktopBtn != null) {
     menuDesktopBtn.addEventListener('click', function (event) {
         menuDesktopIcon.classList.toggle('active');
         desktopMenuTabs.classList.toggle('active');
-        desktopMenu.classList.toggle('active')
-        // desktopMenu.classList.toggle('d-none');
+        // исчезают элементы навигации
         headerLogo.classList.toggle('d-none');
-        header.classList.toggle('fixed');
-        mainContent.classList.toggle('header-fixed');
         siteMapLink.classList.toggle('d-none');
         siteSearchLink.classList.toggle('d-none');
+        
+        desktopMenu.classList.toggle('active');
+        header.classList.toggle('fixed');
+        mainContent.classList.toggle('header-fixed');
 
         setTimeout(() => {
             mainContent.classList.toggle('d-none')
