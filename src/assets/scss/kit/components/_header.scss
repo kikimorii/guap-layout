@@ -66,12 +66,11 @@
 
       &s {
         position: absolute;
-        top: -100vh;
         z-index: 2;
         min-height: 100vh;
+        left: 0;
 
         padding: ($header-size + $sp-9x) $sp-5x $sp-8x;
-
 
         transition: top 0.5s ease-out;
         background-color: $white-main;
@@ -81,8 +80,7 @@
         }
 
         &.active {
-          top: 0;
-          left: 0;
+          top: 0 !important;
         }
       }
 
