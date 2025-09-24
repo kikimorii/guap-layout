@@ -14,7 +14,7 @@ const DESKTOP_MENU_HEIGHT_SPACE = 400; // дополнительно, чтоб �
 const RESIZE_DELAY = 200; // задержка через которую должен срабатывать resize
 
 if (desktopMenu != null) {
-    let desktopMenuHeight = parseInt(getComputedStyle(desktopMenu).height + DESKTOP_MENU_HEIGHT_SPACE);
+    let desktopMenuHeight = parseInt(getComputedStyle(desktopMenu).height)+DESKTOP_MENU_HEIGHT_SPACE;
     desktopMenu.style.top = `-${desktopMenuHeight}px`;
 
     let resizeTimer;
@@ -23,11 +23,11 @@ if (desktopMenu != null) {
         clearTimeout(resizeTimer);
 
         resizeTimer = setTimeout(() => {
-            desktopMenuHeight = parseInt(getComputedStyle(desktopMenu).height + DESKTOP_MENU_HEIGHT_SPACE);
+            desktopMenuHeight = parseInt(getComputedStyle(desktopMenu).height) + DESKTOP_MENU_HEIGHT_SPACE;
             desktopMenu.style.top = `-${desktopMenuHeight}px`;
         }, RESIZE_DELAY);
 
-        desktopMenuHeight = parseInt(getComputedStyle(desktopMenu).height + DESKTOP_MENU_HEIGHT_SPACE);
+        desktopMenuHeight = parseInt(getComputedStyle(desktopMenu).height) + DESKTOP_MENU_HEIGHT_SPACE;
         desktopMenu.style.top = `-${desktopMenuHeight}px`;
     })
 }
