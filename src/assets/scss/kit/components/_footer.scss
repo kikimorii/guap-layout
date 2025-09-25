@@ -14,25 +14,6 @@
                 color: $secondary-guap
             }
         }
-
-        &[href*='tel:'] {
-            display: flex !important;
-            gap: 5px;
-            &::before {
-                content: '\F5C1';
-                font-family: 'bootstrap-icons';
-            }
-        }
-
-        &[href*='mailto:'], &[href*='https://'] {
-            display: flex !important;
-            gap: 5px;
-
-            &::before {
-                content: '\F3EE';
-                font-family: 'bootstrap-icons';
-            }
-        }
     }
     
     & p {
@@ -93,11 +74,6 @@
         &_location {
             display: flex;
             gap: 5px;
-            
-            &::before {
-                content: '\F3E7';
-                font-family: 'bootstrap-icons';
-            }
         }
     }
 
