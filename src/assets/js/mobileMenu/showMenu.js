@@ -16,12 +16,13 @@ import { classToggler } from "../utils";
 if (menuMobileBtn) {
     menuMobileBtn.addEventListener('click', () => {
         classToggler([menuMobileIcon, mobileMenu], 'active');
-        classToggler([mainContent, footerContent, siteMapLink, siteMapLink, siteSearchLink], 'd-none');
+        classToggler([mainContent, footerContent, siteMapLink, siteSearchLink], 'd-none');
         classToggler(header, 'fixed');
 
 
         if (!mobileMenu.classList.contains("active")) {
-            classToggler([backBtn, headerLogo], 'd-none');
+            backBtn.classList.add("d-none");
+            headerLogo.classList.remove("d-none");
             headerText.textContent = '';
 
             const activeLists = document.querySelectorAll(".mobile-menu_list_inner.active");
