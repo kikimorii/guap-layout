@@ -1,10 +1,10 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App.jsx';
-import './assets/js/mobileMenu.js';
-import './assets/js/desktopMenu.js';
+import './assets/js/desktopMenu/index.js';
+import './assets/js/mobileMenu/index.js';
 import './assets/scss/main.scss';
-import { updateYear } from './assets/js/updateYear.js';
+import { updateYear } from './assets/js/utils';
 
 updateYear(document.querySelector("#footerCopyrightYear"));
 
