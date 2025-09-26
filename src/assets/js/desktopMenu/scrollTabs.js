@@ -2,7 +2,9 @@ const desktopMenuTabs = document.querySelector("#desktopMenuTabs");
 const tabsList = Array.from(desktopMenuTabs.querySelectorAll("button.btn-header"));
 const tabsPrev = desktopMenuTabs.querySelector("#tabsPrev");
 const tabsNext = desktopMenuTabs.querySelector("#tabsNext");
-let activeTabIndex = tabsList.findIndex(el => el.classList.contains("active"));
+const reserveWidth = 150;
+let copyActiveTabIntex;
+let displayTabs;
 
 export const scrollTabsRender = (containerWidth) => {
     if (!tabsList.length) return;
@@ -17,15 +19,16 @@ export const scrollTabsRender = (containerWidth) => {
 
     const totalWidth = tabsWidths.reduce((sum, w) => sum + w, 0) + tabsGap * (tabsList.length - 1);
 
-    const reserveWidth = 150;
     if (totalWidth + reserveWidth < containerWidth) {
         return;
     }
 
+    const activeTabIndex = tabsList.findIndex(el => el.classList.contains("active"));
+    copyActiveTabIntex = activeTabIndex;
     if (activeTabIndex === -1) return;
     tabsList[activeTabIndex].classList.remove("d-none");
 
-    const displayTabs = (activeTabIndex) => {
+    displayTabs = (activeTabIndex) => {
         let contentWidth = reserveWidth;
         contentWidth += tabsWidths[activeTabIndex];
         tabsPrev.classList.add('d-none');
@@ -55,28 +58,24 @@ export const scrollTabsRender = (containerWidth) => {
             }
         }
     }
-
     displayTabs(activeTabIndex);
-
-    tabsNext.addEventListener('click', () => {
-        if (activeTabIndex === 0) {
-            activeTabIndex += 2;
-        } else {
-            activeTabIndex += 1;
-        }
-        // console.log(tabsList[activeTabIndex]);
-        displayTabs(activeTabIndex);
-    });
-
-    tabsPrev.addEventListener('click', () => {
-        if (activeTabIndex === tabsList.length) {
-            activeTabIndex -= 2;
-        } else {
-            activeTabIndex -= 1;
-        }
-        // console.log(tabsList[activeTabIndex]);
-        displayTabs(activeTabIndex);
-    });
 };
 
+tabsNext.addEventListener('click', () => {
+    if (copyActiveTabIntex <= 1) {
+        copyActiveTabIntex += 3;
+    } else {
+        copyActiveTabIntex += 1;
+    }
+    displayTabs(copyActiveTabIntex);
+});
 
+
+tabsPrev.addEventListener('click', () => {
+    if (copyActiveTabIntex >= tabsList.length - 2) {
+        copyActiveTabIntex -= 3;
+    } else {
+        copyActiveTabIntex -= 1;
+    }
+    displayTabs(copyActiveTabIntex);
+});
